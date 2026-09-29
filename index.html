@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VeriText AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            VeriText <span>AI</span>
+        </div>
+
+        <div class="status">
+            ● AI Detection System
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <h1>
+                AI-Generated Content
+                <span>Detection & Analysis</span>
+            </h1>
+
+            <p>
+                Upload a document or enter text to
+                analyze whether the content appears
+                AI-generated or human-written.
+            </p>
+
+        </section>
+
+
+        <section class="card">
+
+            <div class="tabs">
+
+                <button class="tab active" id="textTab" onclick="showTextMode()">
+                    Text Analysis
+                </button>
+
+                <button class="tab" id="fileTab" onclick="showFileMode()">
+                    PDF / DOCX Analysis
+                </button>
+
+            </div>
+
+
+            <!-- TEXT MODE -->
+
+            <div id="textMode">
+
+                <label>
+                    Enter your text
+                </label>
+
+                <textarea id="textInput" placeholder="Paste your text here..."></textarea>
+
+                <button class="analyze-button" onclick="analyzeText()">
+                    Analyze Text
+                </button>
+
+            </div>
+
+
+            <!-- FILE MODE -->
+
+            <div id="fileMode" class="hidden">
+
+                <label>
+                    Upload document
+                </label>
+
+                <div class="upload-box">
+
+                    <input type="file" id="fileInput" accept=".pdf,.docx,.txt">
+
+                    <p>
+                        PDF, DOCX or TXT
+                    </p>
+
+                </div>
+
+                <button class="analyze-button" onclick="analyzeFile()">
+                    Analyze Document
+                </button>
+
+            </div>
+
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+
+                <p>
+                    Analyzing your content...
+                </p>
+
+            </div>
+
+
+            <div id="error" class="error hidden"></div>
+
+        </section>
+
+
+        <!-- RESULTS -->
+
+        <section id="results" class="results hidden">
+
+            <h2>
+                Analysis Result
+            </h2>
+
+
+            <div class="result-grid">
+
+                <div class="result-card">
+
+                    <h3>
+                        Prediction
+                    </h3>
+
+                    <p id="prediction" class="prediction">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <h3>
+                        Confidence
+                    </h3>
+
+                    <p id="confidence" class="number">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <h3>
+                        Words
+                    </h3>
+
+                    <p id="wordCount" class="number">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <h3>
+                        Chunks
+                    </h3>
+
+                    <p id="chunkCount" class="number">
+                        -
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>
+                    Chunk Analysis
+                </h3>
+
+                <div id="chunkResults"></div>
+
+            </div>
+
+
+            <div class="notice">
+
+                <strong>Important:</strong>
+
+                AI-text detection is probabilistic.
+                The result should be treated as an
+                indication rather than definitive proof
+                of authorship.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            VeriText AI | B.Tech AI & ML Major Project
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
